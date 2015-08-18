@@ -1,3 +1,6 @@
 [submodule "genderamender"]
 	path = genderamender
 	url = https://github.com/anne-decusatis/genderamender
+[submodule "blog"]
+	path = blog
+	url = https://github.com/anne-decusatis/blog.git
