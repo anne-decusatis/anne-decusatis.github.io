@@ -1,0 +1,12 @@
+.content:after {
+  content: "@precisememory for @MergeSortNYC, 9/2015";
+}
+
+strong {
+  color: #d80014;
+}
+
+em {
+  color: #1d3fff;
+  font-style: normal;
+}
