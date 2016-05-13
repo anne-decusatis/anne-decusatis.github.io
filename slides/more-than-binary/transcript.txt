@@ -1,0 +1,165 @@
+1
+Hi! I’m Anne DeCusatis!
+
+2
+I work for Meetup as a Core Engineer, and around this time last year I founded a feminist hackerspace in New York City. 
+
+A couple more preliminary things.
+If you’re tweeting about me during this talk, please at-mention me as precisememory, and hashtag it #inclusivegender to connect with others. 
+And: My pronouns are she and her.
+
+3
+I wanted to give an overview of what I’m going to be talking about today. I’m going to start with a quick overview of gender identity, and why it affects those of us who build products that people use. Then, I’m going to talk about ways that people collect gender information, and how they can do so in an inclusive manner. Lastly, I’m going to talk about a GitHub project I started, Gender Amender, with a new way of collecting gender information, one that bridges inclusivity with respectful data collection. Let’s get started!
+
+4
+I wanted to do a quick exercise to start out.
+
+How many of you use Facebook? (pause) How many use Gmail? (pause) Ok, how many of you registered online to attend this conference? (pause)
+
+Thanks. I’ll come back to that in a minute. Keep it in the back of your mind. Let’s switch gears for a sec.
+
+
+Before I get into why it matters, I wanted to ground everyone with what we’re talking about. What is gender, exactly? I find it easiest to think about this by starting with a list of common misconceptions about gender.
+
+5
+Gender identity is not…
+how you dress
+your physical characteristics or chromosomes
+whom you’re attracted to
+what things you buy or like
+
+6
+Gender identity is: how you feel and how you want to be perceived by the world. A lot of people feel either “male” or “female”, but some feel neither, or both, or something else entirely.
+
+7
+So, why am I talking about gender at a tech conference?
+
+8
+I took this picture when I was playing a video game at home fairly recently. You have to create a Nintendo account in order to upload the level you’ve created to Mario Maker. So I created a level to play around with, and I wanted to show it to a friend who wasn’t with me at the time. Before I could do that, I was asked this. You can’t create an account without completing this step, and I had to pick either “male” or “female” to enable the online aspect of the game. 
+
+Gender is everywhere in our society, and it’s reflected in the technology we use. I don’t mean to call out only Nintendo for this - once you start looking for it, you can find gender information almost everywhere. It’s the first thing asked about you before you’re born, and that continues all the way through your life. The options we’re given shape our perception of the world. And our perception of the world shapes the options we create when we make technology. 
+
+Remember when I asked you about Facebook and Gmail? Most people in the room raised their hands. Facebook and Gmail each have about a billion users - so, one in seven people on Earth have gone through their signup process. And when you sign up for those, you’re asked to share information about your gender identity.
+
+9
+My prior example, as well as many others, have only “male” and “female” as options.
+
+This leaves out a lot of people. It’s hard to tell how many people, because a lot of times when people talk about LGBT statistics they’re focused on sexuality, the LGB portion of the acronym, rather than gender identity, and also because it’s just not safe in a lot of places to admit that you’re gender non-conforming. Despite the difficulty, I tried to find some statistics for this talk anyway. 
+
+10
+Since I’m a millennial, I started at Wikipedia’s article for “LGBT demographics of the United States”. I chose this because I live in the US, we’re in the US now, a lot of tech companies whose products I use are based in the US, and while it’s not always safe, it’s not illegal to be LGBT here. 
+The source most cited there that included transgender people at all was an analysis that drew upon two surveys from about 10 years ago. These surveys only counted individuals actively taking steps towards gender transition as transgender, rather than by self-identification. I mention this context because it’s the reason why I don’t feel that the analysis of those surveys provided any useful data. I think that each person is an expert on their own self, and your identity should be based on what you think it is, not what other people think you might be. 
+
+Some of you might remember that there was a US Trans Survey last fall. The results for that will be available in “mid-2016”, and I look forward to hearing some hopefully more accurate statistics on this. 
+
+11
+So I don’t really have a hard number for you. 
+
+12
+I have some other ways to frame the problem of determining the impact of a non-inclusive selection field, though. 
+
+13
+I saw a link on Twitter to a talk someone gave last year and it’s had a huge effect on the way I frame problems like this. Sara Wachter-Boettcher (I’m sorry if I mispronounced that) is a content strategy consultant. She gave a talk last year called “Everybody Hurts: Content for Kindness” in which she says that we shouldn’t think of “edge cases” so much as “stress cases” - the things which cause designs to break should be placed front and center, as opposed to being left on the edge and not focused on. In other words, it isn’t about only how many people are affected, but how you affect them as well.
+
+14
+I’m also considering the impact you can have when you change your selection to be more inclusive. It doesn’t just affect the people who would select the new option or options you have. It’s visible to everyone, and ideally, it makes them think about how they might perceive gender in their own lives, and how this might affect those around them.
+
+So, we’re hopefully agreed now that only offering binary gender is a problem. But times are changing! Not everyone uses binary gender on their selection forms, anymore!
+
+Let’s go into the problems they face and the ways they try to solve them.
+
+15
+Here’s a quote from one of my favorite online resources on asking for gender, Practice Makes Progress. “Before we talk about what ‘doing it right’ looks like, first we have to talk about why we ask about gender.”
+
+The current most inclusive practice about asking for gender is not to ask for gender. If you’re building a site where gender is irrelevant, it’s zero dev effort to not include gender information, and you’re done!
+
+Unfortunately, we live in a world which cares about gender a lot, and so often, because our apps reflect our reality, we need some sort of gender identification built in.
+
+16
+An open text field is one step up from not asking. Self-identification via text is the only way to ask about gender in a way that’s detailed and meaningful for everyone involved. Everyone experiences gender differently, and it is impossible to build a system that takes all of that into account perfectly with only a list of presets. This doesn’t mean I’m not going to try to represent everyone as best I can within a more limited system - just that I have to be aware of my limitations. 
+
+17
+Maybe you actually use the output of the gender field for something beyond display right now, though. 
+
+For example, Facebook uses this information for advertising. We use this data at Meetup too, even though we don’t serve ads. Gender is a key indicator for recommendations of Meetup groups to Meetup members. 
+
+That doesn’t mean you’re limited to radio buttons or dropdowns or other HTML elements which are used to represent mutually exclusive sets. 
+
+18
+Something that’s becoming more and more common in the past few years, starting around 2014 with Facebook and Google+, is adding a “Custom” text field for gender along with the standard “male” and “female” dropdown options. This is meant to be a balance between making it easy to collect meaningful data about the majority who do identify in a binary way while not alienating nonbinary users. I think this is a great step forward! I’m also ready for something which serves nonbinary people with recommendations as well as male and female people are served.
+
+19
+These are the gender selection options on Google+. I want to specifically note that here, and in the previous slide, the word “Custom” was used to describe the gender text field, rather than “Other.” Using the word “other” here implies that the person filling out this form isn’t meant to be there, that they are something other than normal. It’s a small thing here, but if you’re already being told in a million other ways that you don’t belong, it adds up. 
+
+20
+One more example. This is OKCupid’s gender selection. They have a tagging-style system, which is fine, as long as you can be described by five or fewer of the options they have for you to select from. 
+
+21
+I also want to note that the scope of this talk is focused on gender collection. Display of that gender to others on your site is something you should want to be very careful and deliberate about, so that you can avoid putting trans people in danger by outing them. The main recommendation I have about displaying gender information once you’ve collected it is to make very clear when you’re asking for information how any information you collect will be displayed and used, so that the users of your site can make an informed decision for themselves. I think Facebook, shown here, does this really well. 
+
+22
+I created a GitHub project with the end goal of better representing all genders with the flexibility of a text field while still allowing for robust data collection for recommendations and other targeted content. 
+The core of the project is a JSON list containing a set of words that might refer to part of one’s gender identity, and metadata about how each word corresponds to one of society’s groupings of gender. 
+The idea is that this will be used to allow people to pick as many options as they want from a set that anyone can add to via pull request or opening an issue. 
+
+23
+http://anne.loves.technology/genderamender/
+examples/simple.html 
+Examples:
+Androgynous cis man
+Trans woman
+? Queer person
+
+24
+The core of Gender Amender is this JSON dict. Words describing gender are mapped to integers describing the type of word they are. This whole list is overwhelming to look at all at once, but you don’t really need the whole list to build yourself an identity. 
+
+A couple examples can illustrate this best. 
+
+25
+Let’s say you’re an androgynous cis man - the words “androgynous” and “cis” talk about how you arrive at your gender, and are personally important to you. You wouldn’t have chosen them if they weren’t. But the word “man” is the one that tells our system the most about what you might prefer to have recommended to you. It indicates that you’re male, and as such it’s assigned an integer representing that it has to do with male-ness. 
+
+26
+Or maybe you’re a trans woman. Again, the “trans” identity is important to you, so this system allows us to respect that. But trans women are women, not some other category, and this system also respects that - the word “trans” is assigned a nongendered value, but “woman” is assigned a female value. 
+
+27
+You can also be a queer person, who maybe isn’t entirely sure what to write in, or isn’t comfortable writing everything they feel into such a definitive space as a text field. “Queer” and “person” again are meaningful to you and therefore also to us, but don’t say much to associate you with anything - you could just as easily have used them to say “queer male person” or “queer female person”. The question mark selected here says the most about your identity when trying to fit it into a n-ary framework - what it says is that your gender identity is definitively not male, and not female, but is still gendered. I’ve captured that as “nonbinary” for short, but if “nonbinary” feels too specific to you, you can refer to it by another term, and please let me know so I can update my documentation and code as well! 
+
+28
+Since Gender Amender is, at its core, a JSON list, it can be used in many programming languages. I wrote this script to sort the list of genders alphabetically, to help avoid duplicates and merge conflicts caused by always adding to the end of the file. It was really simple to write with the Python json library! As you can see from my comment, if it’s clear enough on the screen, I’m working on it being easier to work with in many human languages as well. 
+
+29
+I use the term “rendering” to refer to processing the genders selected into buckets based on the type of gender of the user. I chose this term largely because it rhymes. Right now, as I’ve mentioned, I have buckets for “male”, “female”, “neither male nor female but still gendered”, “declined to provide information”, and “no gender information selected”, but it’s my hope that as our collective understanding of gender advances with time, I’ll be able to add more buckets to better represent diverse users. I believe that transparency about this rendering is critically important - that’s why the code is all open-source on Github. I’ll walk you through the critical part of it now.
+
+30
+First, if no genders are selected, we return “UNSURE”. Then, if any of the gender words selected were synonyms for “decline to provide”, we return that the user has declined to provide their gender. 
+
+31
+After that, if a person selects only neutral or female words, they’re classified as female; only neutral or male, they’re classified as male, and only gendered words that aren’t male or female, they’re classified into the bucket I’m calling “nonbinary” for short. 
+
+Using our examples from before, “androgynous cis man” would be MALE, “trans woman” would be FEMALE, and “queer person ?” would be NONBINARY. 
+
+32
+This algorithm is pretty cautious - if someone describes themselves as a “nonbinary femme person”, for example, we’ll say we aren’t sure about them, since femme is marked as a female word, and nonbinary as a nonbinary word. I think that’s better than incorrectly inferring gender, at least when we’re using mutually exclusive buckets for this. 
+
+33
+I think something like Gender Amender can be a great solution for your web form that needs to collect and process gender identity information for social media. However, there are some things that it isn’t suited for, such as legal compliance and medical history, and if you work in one of these fields, you may have to do something different to collect the information you need. 
+I can speak with a little more authority that if you’re in an environment that doesn’t support JavaScript in real time, such as text messaging, you may have some difficulty with the demonstrative examples I’ve written. That doesn’t mean it’s impossible to write an example that uses Gender Amender with an asynchronous response, or no JavaScript, but it’s a user experience challenge I haven’t tackled yet. 
+
+34
+As I’ve mentioned, Gender Amender is on Github. I have a roadmap for things I think need to be created before it can be ready to be a drop-in replacement to production systems, and I would love to have more contributors to help get us there faster! There’s plenty of things you can do to help, and it can be as simple as adding a word that you feel describes your gender, or refactoring some of the messier parts of the HTML I wrote to get us started. I’ve tagged issues on Github with “code” if they involve writing code, with “writing” if they involve writing human-readable words, and with “conceptual” if they have to do with the overall architecture design of Gender Amender. So for example, a simple technical issue would be cleaning up the code in the examples I’ve written. A writing issue would be writing some documentation for the rendering of genders that says what I just explained about how we pick whether a person is male or female or neither. And a conceptual issue would be, “How can we support the differences between gender identity and grammatical gender when using and documenting Gender Amender?”
+
+I have one more thing that I need help with. Gender is a really sensitive and nuanced topic, so I am open to criticism of my methods. If you think this isn’t enough, I want to hear it, and I want to hear how we can make it better together. 
+
+35
+More broadly, you can help by starting a conversation about how gender information is stored and used at your company. Gender is a hard problem to work on for its social complexity, but I think the technical complexity of solutions such as Gender Amender isn’t that high. 
+
+These screenshots are from Meetup. When I joined in February 2015, it looked like the screenshot on the left , with “Other” as a gender option. I wanted to change it to add a text field, and the conversations I had with a variety of people on our data and trust and safety teams led me to create Gender Amender. Last October, at an internal hackathon, I created a proof of concept of using Gender Amender on Meetup. This won the “best overall” prize at our hackathon, and while I don’t feel Gender Amender is ready to go into our production code base just yet, the heightened awareness and support of varied identities at Meetup that came from my hackathon project gave me the leverage I needed to change our dropdown to what it looks like now, on the right. I hope that I’ll be able to champion changes like this in the future, and I hope that you all can think about doing something similar in your world.
+
+36
+There’s a lot of people I’ve talked to about this as I’ve worked on it, and I want to thank all of them. There’s too many names to read every one, but I want to thank Rowan, for the conversations that led to Gender Amender; Sumana, for thought-organizing and talk-giving advice; and Kristen, for helping with the images on my slides and being an expert on visual presentation. 
+
+I also want to thank all the people who’ve worked on this issue before me. I find that my default image of someone who thinks and writes about software engineering, more often than not, is a cis person. Of necessity, a lot of the thinking on gender collection has been done by trans people. I want to specifically credit and uplift the other people who have built in this space. Since I don’t know them personally, I won’t read their names aloud - instead, I’ll be linking to their work directly in a blog post about this. 
+
+37
+Thank you for listening, Any questions?
+
