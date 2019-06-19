@@ -4,7 +4,8 @@
 <h1 id="howenergyefficientistraininganeuralnetworkcomparedtominingabitcoin">How energy efficient is training a neural network compared to mining a bitcoin?</h1>
 <p><i>Anne DeCusatis, June 2019</i></p>
 
-<p>There have been some news articles on machine learning recently, delivering popular science takes on papers with headlines like: <a href="https://www.newscientist.com/article/2205779-creating-an-ai-can-be-five-times-worse-for-the-planet-than-a-car/">Creating an AI can be five times worse for the planet than a car</a>. There have also been news articles delivering similarly hot takes about research into bitcoin: <a href="https://cointelegraph.com/news/bitcoin-generates-more-carbon-emissions-than-some-countries-study-warns">Bitcoin Generates More Carbon Emissions Than Some Countries, Study Warns</a>. Which should we be more worried about? What's the bitcoin-to-neural-network electricity usage ratio? </p>
+<p>There have been some news articles on machine learning recently, delivering popular science takes on papers with headlines like: <a href="https://www.newscientist.com/article/2205779-creating-an-ai-can-be-five-times-worse-for-the-planet-than-a-car/">Creating an AI can be five times worse for the planet than a car</a>. There have also been news articles delivering similarly hot takes about research into bitcoin: <a href="https://cointelegraph.com/news/bitcoin-generates-more-carbon-
+  issions-than-some-countries-study-warns">Bitcoin Generates More Carbon Emissions Than Some Countries, Study Warns</a>. Which should we be more worried about? What's the bitcoin-to-neural-network electricity usage ratio? </p>
 
 <h2 id="bitcoincosts">Bitcoin costs</h2>
 
@@ -18,11 +19,11 @@
 
 <p>The paper <a href="https://arxiv.org/abs/1906.02243">Energy and Policy Considerations for Deep Learning in NLP</a> was also published this month! </p>
 
-<p>At first, I formulated my question as "how deep a neural net would you have to create in order for it to cost more than mining a bitcoin?" but it turns out that your energy usage depends on your deep learning algorithm, for example, not just the depth of the net but also the number of parameters. I don't currently know enough about deep learning to know what some of the common different structures are, so I'm going to rely on Table 3 in the paper, which lists energy usage on a NVIDIA GPU for several neural network algorithms. In particular, the Transformer<em>base, Transformer</em>big, and BERT_base networks have both the number of parameters (which I think can be a rough measure of neural net complexity, though my understanding is that this is orthogonal to "depth"/"layers") and the energy used listed. It would probably be a fairer comparison to compare specialized bitcoin hardware to specialized neural network hardware, but I'm not aware of any public information on how much energy Google's specialized TensorFlow Processing Units (TPU) use, and I don't think it's reasonable to speculate on energy costs based on the cloud provider's billing. </p>
+<p>At first, I formulated my question as "how deep a neural net would you have to create in order for it to cost more than mining a bitcoin?" but it turns out that your energy usage depends on your deep learning algorithm, for example, not just the depth of the net but also the number of parameters. I don't currently know enough about deep learning to know what some of the common different structures are, so I'm going to rely on Table 3 in the paper, which lists energy usage on a NVIDIA GPU for several neural network algorithms. In particular, the Transformer_base, Transformer_big, and BERT_base networks have both the number of parameters (which I think can be a rough measure of neural net complexity, though my understanding is that this is orthogonal to "depth"/"layers") and the energy used listed. It would probably be a fairer comparison to compare specialized bitcoin hardware to specialized neural network hardware, but I'm not aware of any public information on how much energy Google's specialized TensorFlow Processing Units (TPU) use, and I don't think it's reasonable to speculate on energy costs based on the cloud provider's billing. </p>
 
 <p>Table 3 lists kWh-PUE, which includes cooling costs, so I calculated the kWh excluding those costs from the table myself. 
-Transformer<em>base has 65M parameters and uses 17 kWh.
-Transformer</em>big has 213M parameters and uses 127 kWh. 
+Transformer_base has 65M parameters and uses 17 kWh.
+Transformer_big has 213M parameters and uses 127 kWh. 
 Another algorithm, BERT_base, has 110M parameters and uses 951 kWh. </p>
 
 <p>It's probably not safe to assume that energy usage increases linearly with number of parameters in the Transformer network, but I only have two data points, so that is what I am going to assume. The linear math there would be:
