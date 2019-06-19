@@ -26,9 +26,9 @@ Transformer_base has 65M parameters and uses 17 kWh.
 Transformer_big has 213M parameters and uses 127 kWh. 
 Another algorithm, BERT_base, has 110M parameters and uses 951 kWh. </p>
 
-<p>It's probably not safe to assume that energy usage increases linearly with number of parameters in the Transformer network, but I only have two data points, so that is what I am going to assume. The linear math there would be:
-change in number of parameters / change in energy usage = (213M - 65M) / (127 - 17) = 1.35M parameters for each kWh spent
-If this were true, the best-case scenario of 53,342 kWh could be accomplished with only about 72 trillion parameters in a Transformer network. Again, I don't think this is correct. </p>
+<p>It's probably not safe to assume that energy usage increases linearly with number of parameters in the Transformer network, but I only have two data points, so that is what I am going to assume. The linear math there would be:</p>
+<p>change in number of parameters / change in energy usage = (213M - 65M) / (127 - 17) = 1.35M parameters for each kWh spent</p>
+<p>If this were true, the best-case scenario of 53,342 kWh could be accomplished with only about 72 trillion parameters in a Transformer network. Again, I don't think this is correct. </p>
 
 <h2 id="conclusion">Conclusion</h2>
 
